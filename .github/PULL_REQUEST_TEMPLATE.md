@@ -1,15 +1,20 @@
 <!--
 SecuritySkills — Pull Request
-Drop this in as .github/PULL_REQUEST_TEMPLATE.md
-Please fill out every section. PRs that skip the "Evidence of real use" section will be closed.
+Installed at .github/PULL_REQUEST_TEMPLATE.md
+
+Read before submitting:
+- New skills are issue-first. Open an issue, wait for a maintainer to add the "approved" label,
+  then open the PR and link it below. PRs without an approved linked issue are closed automatically.
+- One open PR per contributor at a time.
+- Every box below must be filled. The "Reproduction" section must be independently runnable by a
+  maintainer — pasted text alone is not accepted.
 -->
 
 ## What this PR does
 <!-- One or two plain sentences: which skill, and what it adds or fixes. -->
 
-## Linked issue (required for new skills)
-<!-- New skills need an approved tracking issue first, so we avoid duplicate work on the same skill.
-     Open an issue, get it acknowledged, then link it here. -->
+## Linked approved issue (required for new skills)
+<!-- The issue must already carry the "approved" label. New-skill PRs without one are auto-closed. -->
 Closes #
 
 ## Type of change
@@ -17,33 +22,32 @@ Closes #
 - [ ] Improvement to an existing skill
 - [ ] Bug fix / documentation
 
-## Evidence of real use (required)
-<!-- This is the most important section. It's how we tell a skill that genuinely helps from one
-     that only looks right on paper — and it's where good work stands out. Show the skill actually running. -->
+## Reproduction — independently runnable (required)
+<!-- This is the gate. A maintainer must be able to re-run this and get the same result.
+     Pasted output with no reproducible source does not count. -->
+- **Public link to the full run** (gist or repo with the complete transcript): <!-- URL -->
+- **Target codebase** (public repo URL) **at a pinned commit SHA**: <!-- repo@<sha> -->
+- **Exact command / tool invocation used:** <!-- e.g. the skill loaded in Claude Code + the prompt -->
 
-- **Codebase you ran it against:** <!-- a link is ideal; a clear description is fine -->
-- **Tool used:** <!-- Claude Code / Cursor / Codex / Gemini CLI / etc. -->
-- **What it actually found or produced** (paste real output, with `file:line` where relevant):
-
-```
-<paste the real run output here>
-```
-
-- **Why the result is correct:** <!-- one or two sentences on how you verified the finding is a true positive -->
+## Discrimination evidence — true positive AND true negative (required)
+<!-- A useful skill flags the vulnerable case and stays silent on the safe one.
+     Reference the fixture pair (the repo ships vulnerable/ and benign/ examples). -->
+- **True positive** (vulnerable case it correctly flagged), with `file:line`:
+- **True negative** (safe case it correctly did NOT flag), with `file:line`:
 
 ## Framework grounding
-<!-- Every skill must cite real, verifiable control IDs — no invented identifiers. -->
+<!-- Real, verifiable control IDs only — no invented identifiers. A reviewer will check these. -->
 - Frameworks / control IDs used:
 
-## Quality checklist
-- [ ] `SKILL.md` frontmatter is complete and `name:` matches the skill's directory name
-- [ ] All cited control IDs are real and verifiable
-- [ ] I searched `skills/` and this does **not** duplicate an existing or already-proposed skill
-- [ ] `author:` is my own GitHub handle (not `unitoneai`)
-- [ ] This is my only open PR right now (one open PR per contributor while the queue is being rebuilt)
+## Attestation & checklist
+- [ ] The reproduction above is from a **real run I performed** (not hand-written), and the linked transcript is genuine.
+- [ ] `SKILL.md` frontmatter is complete and `name:` matches the skill's directory.
+- [ ] I searched `skills/` and existing open PRs — this is **not a duplicate** of a shipped or already-proposed skill.
+- [ ] `author:` is my own GitHub handle (not `unitoneai`).
+- [ ] This is my **only open PR** right now.
 
-## Anything else you'd like a reviewer to know
+## Anything else for a reviewer
 <!-- Optional context, trade-offs, open questions. -->
 
 ---
-<sub>Heads up: the paid bounty program is currently **paused**. Contributions are still welcome and will be credited — we'll announce on Discord when bounties resume.</sub>
+<sub>The paid bounty program is currently **paused**. Contributions are still welcome and will be credited.</sub>
