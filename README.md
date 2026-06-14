@@ -249,19 +249,11 @@ Despite this multi-layered review process, these skills may contain inaccuracies
 
 ---
 
-## Contribute & earn bounties
+## Contribute
 
-We pay for quality skill work — **$25** to review a skill, **$50–150** to improve one, **$200–500** to author a new one, and a **$1,000** quarterly champion bonus. Paid within 48h of merge. New to the format? Start with a review.
+Contributions are welcome — skill reviews, improvements, and new skills. Read **[CONTRIBUTING.md](CONTRIBUTING.md)** for the quality bar, skill-format specification, and the review/PR checklist, and author new skills with **[SKILL_TEMPLATE.md](SKILL_TEMPLATE.md)**. Every skill must cite a real framework with verifiable control IDs.
 
-1. Grab a task in `#bounty-board` on [Discord](https://discord.gg/DKTZzfU9B)
-2. Read **[CONTRIBUTING.md](CONTRIBUTING.md)** for the rubric (min 15/23 to qualify) and review/PR templates
-3. Author with **[SKILL_TEMPLATE.md](SKILL_TEMPLATE.md)**
-
----
-
-## Contributing
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for the quality bar, skill format specification, and PR checklist. Every skill must cite a real framework with verifiable control IDs.
+> **⏸️ Bounty program paused.** The paid bounty program is temporarily on hold. Contributions are still welcome and will be credited — we'll announce on [Discord](https://discord.gg/DKTZzfU9B) when bounties resume.
 
 ## Security
 

@@ -4,6 +4,8 @@ Thank you for your interest in evolving SecuritySkills. This project is built by
 
 ## Bounty Program
 
+> **⏸️ Paused.** The paid bounty program is temporarily on hold. Contributions are still welcome and will be credited; the tiers below describe the program as it will resume — we'll announce timing on [Discord](https://discord.gg/DKTZzfU9B).
+
 We run a paid bounty program for three types of contributions. All bounties are paid within 48 hours of merge/acceptance.
 
 ### Tiers
