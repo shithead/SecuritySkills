@@ -25,10 +25,18 @@ jobs:
             const assoc = pr.author_association; // OWNER/MEMBER/COLLABORATOR/CONTRIBUTOR/NONE/FIRST_TIME_CONTRIBUTOR
             const num = pr.number;
 
-            // Never gate maintainers.
-            if (["OWNER","MEMBER","COLLABORATOR"].includes(assoc)) {
-              core.info(`Skipping gate for maintainer (${assoc}).`); return;
+            // Never gate maintainers or bots. Do NOT trust the event payload's
+            // author_association alone (it can be NONE/CONTRIBUTOR for org members on
+            // pull_request_target). Verify actual repo permission via the API.
+            if (author.endsWith("[bot]")) { core.info("Skipping bot author."); return; }
+            let isMaintainer = ["OWNER","MEMBER","COLLABORATOR"].includes(assoc);
+            if (!isMaintainer) {
+              try {
+                const perm = await github.rest.repos.getCollaboratorPermissionLevel({owner, repo, username: author});
+                if (["admin","maintain","write"].includes(perm.data.permission)) isMaintainer = true;
+              } catch (e) { core.warning(`permission check failed: ${e.message}`); }
             }
+            if (isMaintainer) { core.info(`Skipping gate for maintainer/collaborator (${author}).`); return; }
 
             const ensureLabel = async (name,color,desc) => {
               try { await github.rest.issues.getLabel({owner,repo,name}); }
