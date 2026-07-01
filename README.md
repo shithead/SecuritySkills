@@ -10,6 +10,7 @@
 ![Codex CLI](https://img.shields.io/badge/Codex_CLI-compatible-purple.svg)
 ![OpenClaw](https://img.shields.io/badge/OpenClaw-compatible-purple.svg)
 ![Kiro](https://img.shields.io/badge/Kiro-compatible-purple.svg)
+![OpenCode](https://img.shields.io/badge/OpenCode-compatible-purple.svg)
 
 ---
 
@@ -25,6 +26,20 @@ These skills ground agents in real published frameworks -- OWASP, NIST, MITRE AT
 git clone https://github.com/UnitOneAI/SecuritySkills.git
 cd SecuritySkills
 ```
+
+**Quick setup (recommended)** — symlinks for all supported tools:
+
+```bash
+# Project-local (Claude Code + OpenCode)
+./scripts/setup-skills.sh
+
+# Or global install
+./scripts/setup-skills.sh --global
+
+# After git pull, re-run to pick up new skills
+```
+
+**Tool-specific installs:**
 
 **Claude Code** (native format — auto-discovery and `/slash-commands`)
 
@@ -61,6 +76,16 @@ cp -r skills/ .cursor/rules/
 # Point any agent at a skill's SKILL.md file
 codex --context skills/appsec/threat-modeling/SKILL.md "Review this design"
 kiro spec --skill skills/ai-security/llm-top-10/SKILL.md
+```
+
+**OpenCode** (auto-discovery via `.opencode/skills/` and `.claude/skills/`)
+
+```bash
+# Setup symlinks (recommended)
+./scripts/setup-skills.sh
+
+# Or manually:
+mkdir -p .opencode/skills && cp -r skills/*/* .opencode/skills/
 ```
 
 Each skill is a directory with `SKILL.md` as the entrypoint, following the [Agent Skills](https://agentskills.io) open standard. Claude Code discovers skills automatically; other tools can load them by path.
@@ -296,7 +321,7 @@ Pre-configured skill sequences for common security roles. Each bundle orchestrat
 - **Framework-grounded.** Every skill cites real control IDs from OWASP, NIST, MITRE ATT&CK, or CIS. No invented controls. No hallucinated references.
 - **Consistent output format.** Structured findings with severity, CWE mapping, framework reference, evidence, remediation, and normalized JSON -- every time.
 - **AI-security skills that don't exist elsewhere.** OWASP LLM Top 10, Agentic AI security, prompt injection testing, model supply chain review.
-- **Multi-agent compatible.** Same skill file works with Claude Code, Gemini CLI, Cursor, Codex CLI, OpenClaw, and Kiro.
+- **Multi-agent compatible.** Same skill file works with Claude Code, OpenCode, Gemini CLI, Cursor, Codex CLI, OpenClaw, and Kiro.
 - **Prompt-injection hardened.** Every skill reviewed against OWASP LLM01:2025. CI scans for injection patterns on every PR.
 - **Enterprise-ready.** Built by practitioners, not scraped from blog posts. Designed for real security programs.
 

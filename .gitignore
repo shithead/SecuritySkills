@@ -17,3 +17,7 @@ Thumbs.db
 
 # Plan file (internal reference, not published)
 skillsrepo.md
+
+# Generated skill symlinks for agent tools (created by scripts/setup-skills.sh)
+.claude/skills/
+.opencode/skills/
